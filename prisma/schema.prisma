@@ -10,6 +10,18 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Animal{
+  id             String              @id @default(uuid())
+  nome           String      
+  nomeCientifico String
+  genero         String
+  familia        String
+  descricao      String
+  popEstimada    Int
+  bioma          String
+  nivelAmeaca    String
 }
