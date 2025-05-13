@@ -1,9 +1,11 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '../generated/prisma/index.js';
 
-const prisma = new PrismaClient();
 
+const prisma = new PrismaClient(); // instancia o cliente prisma (responsável pelos métodos como findmany)
+
+class animalService { // criação de uma classe englobando todos os métodos para facilitar o export
 // Operação CREATE: cria o animal
-export async function criarAnimal(data) {
+async criarAnimal(data) {
   try {
     const novoAnimal = await prisma.animal.create({
       data: {
@@ -25,13 +27,13 @@ export async function criarAnimal(data) {
 }
 
 // OPERAÇÃO READ: lista todos os animais
-export async function listarAnimais() {
+async listarAnimais() {
     const animais = await prisma.animal.findMany(); // PARECIDO COM O SELECT DO SQL
     return animais;
   }
 
 // OPERAÇÃO UPDATE: ATUALIZA O ANIMAL COM BASE NOS DADOS FORNECIDOS USANDO O MÉTODO UPDATE DO PRISMA
-export async function atualizarAnimal(id, data) {
+async atualizarAnimal(id, data) {
   try {
     const animalAtualizado = await prisma.animal.update({
       where: { id: id },
@@ -51,3 +53,19 @@ export async function atualizarAnimal(id, data) {
     throw new Error('Erro ao atualizar animal: ' + error.message);
   }
 }
+
+// OPERAÇÃO DELETE: DELETA O ANIMAL COM BASE EM SEU ID, SIMPLES
+async excluirAnimal(id) {
+  try {
+    const animalExcluido = await prisma.animal.delete({
+      where: { id: id },
+    });
+    return animalExcluido;
+
+  } catch (error) {
+    throw new Error('Erro ao excluir animal: ' + error.message);
+  }
+}
+}
+
+export default new animalService();

@@ -1,7 +1,10 @@
-// src/routes/amazonRoutes.js
-import express from 'express';
-import AmazonController from "../controller/amazonia.controller.js"
+import { Router } from "express";
+const rota = Router();
+import animalController from '../controllers/animal.Controller.js';
 
-const router = express.Router();
+rota.post('/criar', animalController.criarAnimal); // ROTA POST
+rota.get('/', animalController.listarAnimais); // ROTA GET
+rota.put('/atualizar/:id', animalController.atualizarAnimal); // ROTA PUT
+rota.delete('/deletar/:id', animalController.excluirAnimal); // ROTA DELETE
 
-export default router;
+export default rota;
