@@ -3,6 +3,14 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+model Threat {
+  id            String @id @default(uuid())
+  name          String
+  description   String
+  createdAt     DateTime @default(now())
+  updated_at    DateTime @updatedAt
 }
