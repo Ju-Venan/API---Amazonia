@@ -1,10 +1,11 @@
 import UserService from "../service/amazonia.service.js"
+import {v4 as uuid} from "uuid";
 
 class UserController {
     
     async getAllUsers(req, res) {
       try {
-        const users = await userService.getUser();
+        const users = await UserService.getUser();
         return res.status(200).json(users);
       } catch (error) {
         console.error(error);
@@ -21,8 +22,8 @@ class UserController {
         }
   
         const userData = { id, name, email, password, createdAt };
-        const newUser = await userService.criaUser(userData);
-        return res.status(201).json(newUser);
+        const newUser = await UserService.criaUser(userData);
+        return res.status(201).json({message: "Usuário inserido com sucesso"});
       } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Erro ao criar usuário" });
@@ -38,7 +39,7 @@ class UserController {
           return res.status(400).json({ message: "Campos obrigatórios faltando" });
         }
   
-        const updatedUser = await userService.updateUser(id, { name, email, password });
+        const updatedUser = await UserService.updateUser(id, { name, email, password });
         return res.status(200).json(updatedUser);
       } catch (error) {
         console.error(error);
@@ -50,8 +51,8 @@ class UserController {
       const { id } = req.params;
   
       try {
-        const deletedUser = await userService.deletaUser(id);
-        return res.status(204).json(deletedUser); // Status 204 para deletar com sucesso, sem corpo
+        const deletedUser = await UserService.deletaUser(id);
+        return res.status(204).json(deletedUser); 
       } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Erro ao deletar usuário" });
