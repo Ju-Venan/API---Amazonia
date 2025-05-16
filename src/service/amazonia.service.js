@@ -9,8 +9,7 @@ class UserService {
     }
   
     async criaUser(data) {
-      
-  
+    
       const novoUser = await prisma.user.create({
         data: {
             id: data.id,

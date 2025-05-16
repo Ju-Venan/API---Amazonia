@@ -1,5 +1,4 @@
 import UserService from "../service/amazonia.service.js"
-import {v4 as uuid} from "uuid";
 
 class UserController {
     
@@ -23,7 +22,7 @@ class UserController {
   
         const userData = { id, name, email, password, createdAt };
         const newUser = await UserService.criaUser(userData);
-        return res.status(201).json({message: "Usuário inserido com sucesso"});
+        return res.status(201).json({ message: "Usuário inserido com sucesso!" });
       } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Erro ao criar usuário" });

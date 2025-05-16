@@ -1,4 +1,3 @@
-// src/middleware/globalMiddleware.js
 import cors from "cors";
 import express from "express";
 

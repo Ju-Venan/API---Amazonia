@@ -1,4 +1,3 @@
-// src/routes/amazonRoutes.js
 import express from 'express';
 import UserController from "../controller/amazonia.controller.js"
 
