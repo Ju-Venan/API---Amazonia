@@ -1,15 +1,9 @@
-import express from 'express';
-import animais from "./src/routes/animal.Route.js";
+import app from './server.js';
+const PORT = 3000; // CONFIGURA A PORTA
 
-const app = express();
-const PORT = 3000;
 
-app.use(express.json());
-app.use(animais); 
 
-// Usar as rotas
-app.use('/animal', animais);
-
-app.listen(PORT, () => {
+app.listen(PORT, () => { // RODA A PORTA 3000 NO SERVIDOR
     console.log(`Servidor rodando em http://localhost:${PORT}`);
+    console.log(`Documentação da API animais disponível em http://localhost:${PORT}/api-docs`)
 });

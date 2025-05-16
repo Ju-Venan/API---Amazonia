@@ -20,10 +20,13 @@
   "homepage": "https://github.com/Ju-Venan/API---Amazonia#readme",
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "sqlite": "^5.1.1",
     "sqlite3": "^5.1.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
