@@ -2,7 +2,7 @@
   "name": "api---amazonia",
   "version": "1.0.0",
   "main": "main.js",
-  "type": "module",
+  "type":"module",
   "scripts": {
     "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,7 +20,6 @@
   "homepage": "https://github.com/Ju-Venan/API---Amazonia#readme",
   "dependencies": {
     "@prisma/client": "^6.7.0",
-    "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "sqlite": "^5.1.1",

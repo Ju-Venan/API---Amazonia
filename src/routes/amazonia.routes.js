@@ -1,7 +1,7 @@
-// src/routes/amazonRoutes.js
-import express from 'express';
+// // src/routes/amazonRoutes.js
+// import express from 'express';
 // import AmazonController from "../controller/amazonia.controller.js"
 
-const router = express.Router();
+// const router = express.Router();
 
-export default router;
+// export default router;
