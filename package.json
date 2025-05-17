@@ -5,7 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "prisma:migrate": "prisma migrate dev --schema=prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema=prisma/schema.prisma",
+    "prisma:studio": "primas studio --schema=prisma/schema.prisma"
   },
   "repository": {
     "type": "git",
@@ -28,8 +31,10 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "jest": "^29.7.0",
     "nodemon": "^3.1.10",
-    "prisma": "^6.7.0"
+    "prisma": "^6.7.0",
+    "supertest": "^7.1.1"
   },
   "description": ""
 }
