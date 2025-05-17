@@ -27,7 +27,7 @@ class PlantsController{
         try {
             const plantData = req.body;
             const newPlant = await plantService.createPlant(plantData)
-            res.status(200).json(newPlant)
+            res.status(201).json(newPlant)
         } catch (error) {
             res.status(400).json({ error: error.message});
         }
@@ -80,9 +80,11 @@ class PlantsController{
         try{
             const id = req.params.id;
             const deletePlant = await plantService.deletePlant(id)
-            res.status(200).json(deletePlant)
+            return res.status(200).json({ message: "Planta deletada com sucesso!" })
         } catch (error) {
-            res.status(400).json({ error: error.message});
+            if (error.code === 'P2025'){
+               return res.status(404).json({ message: "Planta não encontrada!" })
+            } return res.status(400).json({ error: error.message });
         }
     }
 }
