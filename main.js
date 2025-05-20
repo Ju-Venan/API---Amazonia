@@ -5,5 +5,4 @@ const PORT = 3000; // CONFIGURA A PORTA
 
 app.listen(PORT, () => { // RODA A PORTA 3000 NO SERVIDOR
     console.log(`Servidor rodando em http://localhost:${PORT}`);
-    console.log(`Documentação da API animais disponível em http://localhost:${PORT}/api-docs`)
 });
