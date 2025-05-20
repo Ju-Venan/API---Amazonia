@@ -20,3 +20,14 @@ model User {
   password String
   createdAt DateTime @default(now())
 }
+model Animal{
+  id             String              @id @default(uuid())
+  nome           String      
+  nomeCientifico String
+  genero         String
+  familia        String
+  descricao      String
+  popEstimada    Int
+  bioma          String
+  nivelAmeaca    String
+}
