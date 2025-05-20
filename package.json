@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "main.js",
   "type": "module",
-  "type": "module",
   "scripts": {
     "dev": "nodemon main.js",
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "prisma:migrate": "prisma migrate dev --schema=prisma/schema.prisma",
+    "prisma:generate": "prisma generate --schema=prisma/schema.prisma",
+    "prisma:studio": "primas studio --schema=prisma/schema.prisma"
   },
-  
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ju-Venan/API---Amazonia.git"
@@ -23,7 +24,7 @@
   "dependencies": {
     "@prisma/client": "^6.7.0",
     "cors": "^2.8.5",
-    "cors": "^2.8.5",
+    "date-fns": "^4.1.0",
     "dotenv": "^16.5.0",
     "express": "^5.1.0",
     "pg": "^8.16.0",
@@ -34,10 +35,11 @@
     "uuid": "^11.1.0"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.27.2",
+    "@jest/core": "^29.7.0",
+    "babel-jest": "^29.7.0",
     "jest": "^29.7.0",
     "nodemon": "^3.1.10",
-    "prisma": "^6.7.0",
-    "supertest": "^7.1.1"
     "prisma": "^6.7.0",
     "supertest": "^7.1.1"
   },

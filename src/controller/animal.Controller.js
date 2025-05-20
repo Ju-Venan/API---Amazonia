@@ -1,4 +1,4 @@
-import animalService from "../services/animal.Service.js";
+import animalService from "../service/animal.Service.js";
 
 class animalController{
 

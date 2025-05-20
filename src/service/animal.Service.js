@@ -1,5 +1,4 @@
-import { PrismaClient } from '../generated/prisma/index.js';
-
+import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient(); // instancia o cliente prisma (responsável pelos métodos como findmany)
 

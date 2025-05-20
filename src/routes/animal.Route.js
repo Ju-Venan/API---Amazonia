@@ -1,6 +1,6 @@
 import { Router } from "express";
 const rota = Router();
-import animalController from '../controllers/animal.Controller.js';
+import animalController from "../controller/animal.Controller.js";
 
 rota.post('/criar', animalController.criarAnimal); // ROTA POST
 rota.get('/', animalController.listarAnimais); // ROTA GET
