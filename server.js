@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from "cors";
+import userRouter from "./src/routes/amazonia.routes.js"
 import animais from "./src/routes/animal.Route.js";
 import threatRouter from "./src/routes/threat.routes.js";
 import corsMiddleware from './src/middlewares/cors.js';
@@ -14,11 +15,8 @@ app.use(express.json());
 app.use(corsMiddleware); // Aplicar o middleware do CORS antes de outros middlewares
 app.use(logger);
 
-// app.use(animais);
-
-// app.use(express.json()); // PARA O POST
-
 // Usar as rotas
+app.use("/users", userRouter)
 app.use('/animal', animais);
 app.use("/threat", threatRouter);
 

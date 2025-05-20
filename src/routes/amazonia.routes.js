@@ -3,12 +3,12 @@ import UserController from "../controller/amazonia.controller.js"
 
 const router = express.Router();
 
-router.get("/users", UserController.getAllUsers);
+router.get("/", UserController.getAllUsers);
 
-router.post("/users", UserController.createUser);
+router.post("/", UserController.createUser);
 
-router.put("/users/:id", UserController.updateUser);
+router.put("/:id", UserController.updateUser);
 
-router.delete("/users/:id", UserController.deleteUser);
+router.delete("/:id", UserController.deleteUser);
 
 export default router;
