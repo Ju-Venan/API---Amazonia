@@ -20,14 +20,14 @@ class PlantsController{
             !naturalHabitat ||
             !benefits
         ){
-            return res.status(400).json({ message: "Você deve preencher todos os dados"})
+            return res.status(400).json({ message: "Você deve preencher todos os dados"});
         }
 
         // Conecetando com o service para criar planta com os dados passados no corpo 
         try {
             const plantData = req.body;
             const newPlant = await plantService.createPlant(plantData)
-            res.status(201).json(newPlant)
+            res.status(201).json({ message: "Planta criada com sucesso!"})
         } catch (error) {
             res.status(400).json({ error: error.message});
         }
@@ -69,9 +69,11 @@ class PlantsController{
             const id = req.params.id;
             const plantData = req.body; // retorna a planta atualizada com as informações passadas no corpo
             const updatePlant = await plantService.updatePlant(id, plantData)
-            res.status(200).json(updatePlant)
+            res.status(200).json({ message: "Planta atualizada com sucesso!" })
         } catch (error) {
-            res.status(400).json({ error: error.message});
+            if (error.code === 'P2025'){
+               return res.status(404).json({ message: "Planta não encontrada!" })
+            } res.status(400).json({ error: error.message});
         }
     }
 
