@@ -1,7 +1,7 @@
 import request from 'supertest';
 import app from '../../../main.js';
 
-console.log('DB em uso:', process.env.DB_PATH);
+console.log('DB em uso:', process.env.DATABASE_URL);
 
 //teste rota read
 describe('GET /plantas', () => {
