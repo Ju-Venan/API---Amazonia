@@ -1,3 +1,4 @@
+// File: src/service/curiosidades.service.js
 export class CuriosidadesService {
   constructor() {
     this.curiosidades = [];
