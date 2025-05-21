@@ -3,33 +3,40 @@ import { CuriosidadesService } from '../service/curiosidades.service.js';
 const service = new CuriosidadesService();
 
 export class CuriosidadesController {
-  static getAll(req, res) {
-    res.json(service.getAll());
+  static async getAll(req, res) {
+    const dados = await service.getAll();
+    res.json(dados);
   }
 
-  static getById(req, res) {
+  static async getById(req, res) {
     const { id } = req.params;
-    const curiosidade = service.getById(Number(id));
-    if (!curiosidade) return res.status(404).json({ mensagem: 'Não encontrada' });
-    res.json(curiosidade);
+    const dado = await service.getById(Number(id));
+    if (!dado) return res.status(404).json({ mensagem: 'Não encontrado' });
+    res.json(dado);
   }
 
-  static create(req, res) {
-    const nova = service.create(req.body);
-    res.status(201).json(nova);
+  static async create(req, res) {
+    const novo = await service.create(req.body);
+    res.status(201).json(novo);
   }
 
-  static update(req, res) {
+  static async update(req, res) {
     const { id } = req.params;
-    const atualizada = service.update(Number(id), req.body);
-    if (!atualizada) return res.status(404).json({ mensagem: 'Não encontrada' });
-    res.json(atualizada);
+    try {
+      const atualizado = await service.update(Number(id), req.body);
+      res.json(atualizado);
+    } catch (e) {
+      res.status(404).json({ mensagem: 'Não encontrado' });
+    }
   }
 
-  static delete(req, res) {
+  static async delete(req, res) {
     const { id } = req.params;
-    const sucesso = service.delete(Number(id));
-    if (!sucesso) return res.status(404).json({ mensagem: 'Não encontrada' });
-    res.json({ mensagem: 'Removida com sucesso' });
+    try {
+      await service.delete(Number(id));
+      res.json({ mensagem: 'Removido com sucesso' });
+    } catch (e) {
+      res.status(404).json({ mensagem: 'Não encontrado' });
+    }
   }
 }

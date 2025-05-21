@@ -32,3 +32,33 @@ export class CuriosidadesService {
     return true;
   }
 }
+
+import { PrismaClient } from '@prisma/client';
+
+const prisma = new PrismaClient();
+
+export class CuriosidadesService {
+  async getAll() {
+    return await prisma.curiosidade.findMany();
+  }
+
+  async getById(id) {
+    return await prisma.curiosidade.findUnique({ where: { id } });
+  }
+
+  async create(data) {
+    return await prisma.curiosidade.create({ data });
+  }
+
+  async update(id, data) {
+    return await prisma.curiosidade.update({
+      where: { id },
+      data
+    });
+  }
+
+  async delete(id) {
+    return await prisma.curiosidade.delete({ where: { id } });
+  }
+}
+
