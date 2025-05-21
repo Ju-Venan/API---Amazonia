@@ -10,8 +10,8 @@ app.use(express.json());
 app.use('/api', curiosidadesRoutes);
 app.use('/api', amazoniaRoutes);
 
-
-app.listen(PORT, () => { // RODA A PORTA 3000 NO SERVIDOR
+const PORT = 3000;
+app.listen(() => { // RODA A PORTA 3000 NO SERVIDOR
     console.log(`Servidor rodando em http://localhost:${PORT}`,);
 });
 
