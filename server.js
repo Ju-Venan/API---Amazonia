@@ -1,13 +1,24 @@
-import app from "./main.js";
-import dotenv from "dotenv"
+import express from 'express';
+import cors from "cors";
+import userRouter from "./src/routes/amazonia.routes.js"
+import animais from "./src/routes/animal.Route.js";
+import threatRouter from "./src/routes/threat.routes.js";
+import corsMiddleware from './src/middlewares/cors.js';
+import { logger } from "./src/middlewares/logger.middleware.js";
 
-// lendo o arquivo .env
-dotenv.config();
+const app = express();
 
-// informando que a porta será a passada no arquivo .env ou 3000
-const PORT = process.env.BACKEND_PORT || 3000;
+app.use(cors());
+app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`Servidor rodando na porta ${PORT}`);
-});
+// Aplicar middlewares
+app.use(corsMiddleware); // Aplicar o middleware do CORS antes de outros middlewares
+app.use(logger);
+
+// Usar as rotas
+app.use("/users", userRouter)
+app.use('/animal', animais);
+app.use("/threat", threatRouter);
+
+export default app; //exporta o app para usar o express
 

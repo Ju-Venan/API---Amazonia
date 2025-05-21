@@ -1,18 +1,13 @@
-import express from 'express';
-import { swaggerSpec, swaggerUi } from './swagger.js';
-// import router from "./src/routes/amazonia.routes.js";
-import plantsRouter from './src/routes/plants.routes.js';
-import corsMiddleware from './src/middlewares/cors.middleware.js'
+import dotenv from "dotenv";
+dotenv.config();
 
-// iniciando a biblioteca express
-const app = express();
+import app from './server.js';
+import { logger, logEvents } from "./src/middlewares/logger.middleware.js";
 
-app.use(express.json());
-app.use(corsMiddleware);
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+const PORT = 3000; // CONFIGURA A PORTA
 
-//Rotas
-// app.use(router); 
-app.use("/plantas", plantsRouter );
+app.listen(PORT, () => { // RODA A PORTA 3000 NO SERVIDOR
+    logEvents(`Servidor rodando em http://localhost:${PORT}`, 'log_servidor.log');
+});
 
 export default app;
