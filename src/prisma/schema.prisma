@@ -1,0 +1,45 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Plant {
+  id                     String   @id @default(uuid())
+  name                   String
+  specie                 String
+  botanicalDescription   String
+  naturalHabitat         String
+  benefits               String
+}
+
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  password String
+  createdAt DateTime @default(now())
+}
+
+model Animal{
+  id             String              @id @default(uuid())
+  nome           String      
+  nomeCientifico String
+  genero         String
+  familia        String
+  descricao      String
+  popEstimada    Int
+  bioma          String
+  nivelAmeaca    String
+}
+
+model Threat {
+  id            String @id @default(uuid())
+  name          String
+  description   String
+  createdAt     DateTime @default(now())
+  updated_at    DateTime @updatedAt
+}
