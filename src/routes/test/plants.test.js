@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../../main.js';
+import app from '../../../main.js';
 
 console.log('DB em uso:', process.env.DB_PATH);
 
@@ -7,7 +7,7 @@ console.log('DB em uso:', process.env.DB_PATH);
 describe('GET /plantas', () => {
     it('deve retornar uma lista de plantas com status 200', async () => {
       const response = await request(app).get('/plantas');
-      expect(response.statusCode).toEqual(200);
+      expect(response.statusCode).toBe(200);
   });
 });
 
@@ -24,13 +24,7 @@ describe('POST /plantas/cadastrar', () => {
           benefits: 'Uso medicinal anti-inflamatório, cicatrizante e repelente natural de insetos.'
       })  
     expect(response.statusCode).toBe(201);
-    expect(response.body).toMatchObject({
-        name: 'Andiroba',
-        specie: 'Carapa guianensis',
-        botanicalDescription: 'Árvore de grande porte com folhas compostas e frutos que se abrem liberando sementes oleaginosas.',
-        naturalHabitat: 'Florestas tropicais úmidas da Amazônia, especialmente áreas alagadas.',
-        benefits: 'Uso medicinal anti-inflamatório, cicatrizante e repelente natural de insetos.'
-    });
+    expect(response.body).toEqual({ message: "Planta criada com sucesso!"})
   });
 
   it('deve retornar erro 400 se algum dado não for preenchido', async () => {
@@ -45,7 +39,7 @@ describe('POST /plantas/cadastrar', () => {
 //teste rota delete
 describe('DELETE /plantas/deletar/:id', () => {
   it('deve deletar a planta pelo id e retornar status 200', async () => {
-    const idExemple = "e04cd7f3-3c04-49e2-8d5c-a163e37e0cdc"; // insira um id existente no seu banco
+    const idExemple = "1fb603bb-d953-457b-add4-0d874525f8d5"; // insira um id existente no seu banco
     const response = await request(app)
       .delete(`/plantas/deletar/${idExemple}`);
     expect(response.statusCode).toBe(200);
