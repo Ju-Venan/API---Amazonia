@@ -13,7 +13,7 @@ app.use(express.json());
 // Aplicar middlewares
 app.use(corsMiddleware); // Aplicar o middleware do CORS antes de outros middlewares
 
-// Rotas
+// Rotas 
 app.use("/users", userRouter);
 app.use('/animal', animalRouter);
 app.use("/plantas", plantsRouter);
