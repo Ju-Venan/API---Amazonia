@@ -17,6 +17,7 @@ CREATE TABLE "User" (
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "User_pkey" PRIMARY KEY ("id")
 );
@@ -45,6 +46,16 @@ CREATE TABLE "Threat" (
     "updated_at" TIMESTAMP(3) NOT NULL,
 
     CONSTRAINT "Threat_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Curiosidade" (
+    "id" SERIAL NOT NULL,
+    "tipo" TEXT NOT NULL,
+    "titulo" TEXT NOT NULL,
+    "descricao" TEXT NOT NULL,
+
+    CONSTRAINT "Curiosidade_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateIndex
