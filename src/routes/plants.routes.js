@@ -18,14 +18,14 @@ plantsRouter.delete("/deletar/:id", PlantsController.delete)
 export default plantsRouter;
 
 /**
- * @swagger
+ * @openapi
  * tags:
  *   name: Plantas
  *   description: Rotas para gerenciamento de plantas
  */
 
 /**
- * @swagger
+ * @openapi
  * /plantas:
  *   get:
  *     summary: Lista todas as plantas
@@ -42,7 +42,7 @@ export default plantsRouter;
  */
 
 /**
- * @swagger
+ * @openapi
  * /plantas/cadastrar:
  *   post:
  *     summary: Cadastra uma nova planta
@@ -59,7 +59,7 @@ export default plantsRouter;
  */
 
 /**
- * @swagger
+ * @openapi
  * /plantas/atualizar/{id}:
  *   patch:
  *     summary: Atualiza uma planta pelo ID
@@ -85,7 +85,7 @@ export default plantsRouter;
  */
 
 /**
- * @swagger
+ * @openapi
  * /plantas/deletar/{id}:
  *   delete:
  *     summary: Remove uma planta pelo ID
@@ -106,7 +106,7 @@ export default plantsRouter;
 
 
 /**
- * @swagger
+ * @openapi
  * components:
  *   schemas:
  *     Planta:

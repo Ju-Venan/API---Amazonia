@@ -1,4 +1,4 @@
-import UserService from "../service/amazonia.service.js"
+import UserService from "../service/user.service.js"
 
 class UserController {
     
@@ -13,18 +13,18 @@ class UserController {
     }
   
     async createUser(req, res) {
-      const { id, name, email, password, createdAt } = req.body;
+      const { name, email, password} = req.body;
   
       try {
         if (!name || !email || !password) {
           return res.status(400).json({ message: "Campos obrigatórios faltando" });
         }
   
-        const userData = { id, name, email, password, createdAt };
+        const userData = { name, email, password };
         const newUser = await UserService.criaUser(userData);
         return res.status(201).json({ message: "Usuário inserido com sucesso!" });
       } catch (error) {
-        console.error(error);
+        console.error("Erro ao criar usuário:", error);
         return res.status(500).json({ message: "Erro ao criar usuário" });
       }
     }
@@ -51,7 +51,7 @@ class UserController {
   
       try {
         const deletedUser = await UserService.deletaUser(id);
-        return res.status(204).json(deletedUser); 
+        return res.status(200).json(deletedUser); 
       } catch (error) {
         console.error(error);
         return res.status(500).json({ message: "Erro ao deletar usuário" });

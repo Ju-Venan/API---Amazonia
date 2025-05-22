@@ -1,0 +1,13 @@
+site_name: AmaZone
+nav:
+  - Introdução: index.md
+  - Como Rodar o Projeto: como-rodar.md
+  - Rotas da API: rotas.md
+  - Swagger: swagger.md
+  - Contribuição: contribuicao.md
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    primary: 'green'
+    accent: 'lime'

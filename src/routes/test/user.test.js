@@ -1,5 +1,5 @@
 import supertest from "supertest";
-import app from "../main.js";
+import app from "../../../server.js";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -7,9 +7,9 @@ const prisma = new PrismaClient();
 let createdUserId;
 
   // CREATE
-  test("POST /users deve criar um novo usuário", async () => {
+  test("POST /users/cadastrar deve criar um novo usuário", async () => {
     const response = await supertest(app)
-      .post("/users")
+      .post("/users/cadastrar")
       .send({
         name: "Julianne Teste",
         email: `julianne${Date.now()}@gmail.com`,
