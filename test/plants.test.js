@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../main.js';
+import app from '../../../server.js';
 
 console.log('DB em uso:', process.env.DATABASE_URL);
 

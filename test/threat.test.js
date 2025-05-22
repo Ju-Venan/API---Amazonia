@@ -1,6 +1,6 @@
 import request from "supertest";
 import express from "express";
-import threatRouter from "../src/routes/threat.routes.js";
+import threatRouter from "../threat.routes";
 
 // Criar uma instância do express e usar só a rota threat para testes isolados
 const app = express();

@@ -1,5 +1,5 @@
 import request from 'supertest';
-import app from '../server.js'; 
+import app from '../../../server.js'; 
 
 describe('Testes de rotas de animal', () => {
   let idCriado;

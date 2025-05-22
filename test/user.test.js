@@ -1,5 +1,5 @@
 import supertest from "supertest";
-import app from "../main.js";
+import app from "../../../main.js";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
