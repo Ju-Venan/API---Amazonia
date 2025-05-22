@@ -1,13 +1,13 @@
 import { Router } from "express";
-const rota = Router();
+const animalRouter = Router();
 import animalController from "../controller/animal.Controller.js";
 
-rota.post('/criar', animalController.criarAnimal); // ROTA POST
-rota.get('/', animalController.listarAnimais); // ROTA GET
-rota.put('/atualizar/:id', animalController.atualizarAnimal); // ROTA PUT
-rota.delete('/deletar/:id', animalController.excluirAnimal); // ROTA DELETE
+animalRouter.post('/criar', animalController.criarAnimal); // ROTA POST
+animalRouter.get('/', animalController.listarAnimais); // ROTA GET
+animalRouter.put('/atualizar/:id', animalController.atualizarAnimal); // ROTA PUT
+animalRouter.delete('/deletar/:id', animalController.excluirAnimal); // ROTA DELETE
 
-export default rota;
+export default animalRouter;
 
 /**
  * @openapi
