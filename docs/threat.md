@@ -28,19 +28,18 @@ Retorna a lista de todas as ameaças cadastradas.
 
 
 
-➡️ GET /api/threat/:id
+###➡️ GET /api/threat/:id
 Retorna uma ameaça específica pelo seu ID.
 
-Resposta (200):
-
+**Resposta (200)**:
 json
 {
   "id": 1,
   "name": "Desmatamento",
   "description": "Remoção da vegetação nativa"
 }
-Resposta (404):
 
+**Resposta (404)**:
 json
 {
   "message": "Ameaça não encontrada"
@@ -48,10 +47,10 @@ json
 
 
 
-➡️ POST /api/threat
+###➡️ POST /api/threat
 Cria uma nova ameaça.
 
-Body:
+**Body**:
 json
 {
   "name": "Caça ilegal",
@@ -59,7 +58,7 @@ json
 }
 
 
-Resposta:
+**Resposta**:
 json
 {
   "message": "Ameaça cadastrada com sucesso!",
@@ -72,17 +71,17 @@ json
 
 
 
-➡️ PUT /api/threat/:id
+###➡️ PUT /api/threat/:id
 Atualiza uma ameaça existente.
 
-Body:
+**Body**:
 json
 {
   "name": "Desmatamento ilegal",
   "description": "Remoção da floresta sem autorização"
 }
 
-Resposta:
+**Resposta**:
 json
 {
   "message": "Ameaça atualizada com sucesso!",
@@ -95,10 +94,10 @@ json
 
 
 
-➡️ DELETE /api/threat/:id
+###➡️ DELETE /api/threat/:id
 Remove uma ameaça do sistema.
 
-Resposta:
+**Resposta**:
 json
 {
   "message": "Ameaça removida com sucesso!"
