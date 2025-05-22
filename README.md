@@ -5,6 +5,7 @@ A floresta amazônica é reconhecida mundialmente como o pulmão do planeta. Sua
 Grande parte desse desconhecimento se dá pela dificuldade de acesso a informações acessíveis e compreensíveis. O que existe, muitas vezes, está restrito a documentos científicos, repletos de linguagem técnica, tornando o conteúdo inacessível ao público em geral.
 
 No entanto, conhecer a Amazônia é essencial. É por meio do conhecimento que podemos entender por que precisamos preservar a floresta — ela protege o planeta, regula o clima e abriga milhares de espécies únicas. Se a floresta desaparecer, não será apenas uma perda para a região: será uma tragédia para toda a humanidade. Cuidar da Amazônia é cuidar de todos nós.
+
 ---
 
 ## Documentação
