@@ -12,11 +12,9 @@ class UserService {
     
       const novoUser = await prisma.user.create({
         data: {
-            id: data.id,
              name: data.name,
              email: data.email,
              password: data.password,
-             createdAt: data.createdAt
         },
       }); 
       return novoUser;
@@ -29,7 +27,7 @@ class UserService {
                 name: data.name,
                 email: data.email,
                 password: data.password,
-                updateAt: new Date(),
+                updatedAt: new Date(),
             },
         })
 
